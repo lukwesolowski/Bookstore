@@ -16,7 +16,7 @@ namespace Bookstore.API.Data.Repositories
         {
             _context = context;
         }
-        public async Task<User> Login(string login, string password)
+        public async Task<User> SignIn(string login, string password)
         {
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Login == login);
 
