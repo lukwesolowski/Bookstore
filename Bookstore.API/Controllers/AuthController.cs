@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Bookstore.API.Data.Interfaces;
+using Bookstore.API.DTOs;
 using Bookstore.API.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,20 +17,20 @@ namespace Bookstore.API.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register(string login, string password)
+        public async Task<IActionResult> Register(UserToRegisterDto userToRegisterDto)
         {
-            login = login.ToLower();
+            userToRegisterDto.Login = userToRegisterDto.Login.ToLower();
 
-            if(await _repo.UserExists(login))
+            if(await _repo.UserExists(userToRegisterDto.Login))
                 return BadRequest("Login already taken");
             
             var userToRegister = new User
             {
-                Login = login,
+                Login = userToRegisterDto.Login,
                 UserRole = "Client"
             };
 
-            var registeredUser = await _repo.Register(userToRegister, password);
+            var registeredUser = await _repo.Register(userToRegister, userToRegisterDto.Password);
 
             return StatusCode(201);
         }
