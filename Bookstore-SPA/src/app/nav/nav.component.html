@@ -1,6 +1,13 @@
 <nav class="navbar navbar-light bg-dark static-top">
   <div class="container">
     <a class="navbar-brand-blue" href="#">Bookstore</a>
-    <a class="btn btn-primary" href="#">Sign In</a>
+
+    <form #signInForm="ngForm" class="form-inline my2 my-lg-0" (ngSubmit)="signIn()">
+      <input class="form-control mr-sm-2" type="text" name="login" 
+        placeholder="Login" required [(ngModel)]="model.login"> 
+      <input class="form-control mr-sm-2" type="password" name="password" 
+        placeholder="Password" required [(ngModel)]="model.password">
+      <button [disabled]="!signInForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Sign In</button>
+    </form>
   </div>
 </nav>

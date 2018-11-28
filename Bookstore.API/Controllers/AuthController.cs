@@ -44,7 +44,7 @@ namespace Bookstore.API.Controllers
             return StatusCode(201);
         }
 
-        [HttpPost("login")]
+        [HttpPost("signIn")]
         public async Task<IActionResult> SignIn(UserToSignInDto userToSignInDto)
         {
             //check if User's login and password matches with that we have stored in db
