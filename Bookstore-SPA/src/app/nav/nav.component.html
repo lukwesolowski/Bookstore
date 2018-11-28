@@ -1,8 +1,19 @@
 <nav class="navbar navbar-light bg-dark static-top">
   <div class="container">
     <a class="navbar-brand-blue" href="#">Bookstore</a>
+    
+    <div *ngIf="signedIn()" class="dropdown">
+      <a class="dropdown-toggle text-light">
+        Welcome User
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#"><i class="fa fa-user"></i>Edit</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i>Something else here</a>
+      </div>
+    </div>
 
-    <form #signInForm="ngForm" class="form-inline my2 my-lg-0" (ngSubmit)="signIn()">
+    <form *ngIf="!signedIn()" #signInForm="ngForm" class="form-inline my2 my-lg-0" (ngSubmit)="signIn()">
       <input class="form-control mr-sm-2" type="text" name="login" 
         placeholder="Login" required [(ngModel)]="model.login"> 
       <input class="form-control mr-sm-2" type="password" name="password" 

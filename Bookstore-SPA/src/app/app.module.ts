@@ -5,18 +5,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ValueComponent } from './value/value.component';
 import { NavComponent } from './nav/nav.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
    declarations: [
       AppComponent,
-      ValueComponent,
       NavComponent,
       HeaderComponent,
-      FooterComponent
+      FooterComponent,
+      RegisterComponent
    ],
    imports: [
       BrowserModule,

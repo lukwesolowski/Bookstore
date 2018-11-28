@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  registerMode = false;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  registerToggle() {
+    this.registerMode = true;
+  }
+
+  cancelRegisterMode(registerMode: boolean) {
+    this.registerMode = registerMode;
+  }
 }

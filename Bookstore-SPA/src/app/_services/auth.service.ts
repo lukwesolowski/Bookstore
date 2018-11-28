@@ -9,15 +9,19 @@ export class AuthService {
 
 constructor(private http: HttpClient) { }
 
-signIn(model: any) {
-  return this.http.post(this.baseUrl + 'signIn', model).pipe(
-      map((response: any) => {
-        const user = response;
-        if (user) {
-          localStorage.setItem('token', user.token);
-        }
-      })
-    );
-}
+  signIn(model: any) {
+    return this.http.post(this.baseUrl + 'signIn', model).pipe(
+        map((response: any) => {
+          const user = response;
+          if (user) {
+            localStorage.setItem('token', user.token);
+          }
+        })
+      );
+  }
+
+  register(model : any) {
+    return this.http.post(this.baseUrl + 'register', model);
+  }
 
 }
